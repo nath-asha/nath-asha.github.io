@@ -9,17 +9,21 @@ body {
     line-height: 1.6;
 }
 
+/* Header Section */
 header.intro-section {
     background: url('su.jpg') no-repeat center center fixed;
     background-size: cover;
     height: 800px;
     padding: 200px 10px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .intro-content h1 {
     font-size: 3rem;
     color: #6A8B89;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .intro-content p {
@@ -30,16 +34,24 @@ header.intro-section {
     line-height: 1.6;
 }
 
+/* Projects, Experience, and Contact Sections */
 .projects-section, .experience-section, .contact-section {
     padding: 50px 20px;
     text-align: center;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
 }
 
 .projects-section h2, .experience-section h2, .contact-section h2 {
     font-size: 2.5rem;
     color: #6A8B89;
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
+/* Projects Grid */
 .projects-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -53,6 +65,12 @@ header.intro-section {
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
 .project-card h3 {
@@ -83,6 +101,7 @@ header.intro-section {
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
 }
 
 /* Contact Form */
@@ -101,6 +120,11 @@ header.intro-section {
     border: 2px solid #A7C7C6;
     border-radius: 5px;
     font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: #FFB6C1;
 }
 
 .contact-form button {
@@ -111,6 +135,7 @@ header.intro-section {
     border-radius: 5px;
     font-size: 1.2rem;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .contact-form button:hover {
@@ -133,6 +158,7 @@ header.intro-section {
     text-decoration: none;
     color: #6A8B89;
     font-size: 1.2rem;
+    transition: color 0.3s ease;
 }
 
 .social-icon:hover {
@@ -207,7 +233,7 @@ header.intro-section {
     text-decoration: none;
     color: #333;
     padding: 10px 20px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .navbar ul li a:hover, .navbar ul li a.active {
@@ -230,6 +256,7 @@ header.intro-section {
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .theme-switcher button:hover {
@@ -255,6 +282,55 @@ body.galaxy-theme .footer-section {
     background-color: #2c2c54;
 }
 
+/* Galaxy Stars Animation */
+@keyframes starry-sky {
+    0% { opacity: 0; transform: translateY(0); }
+    100% { opacity: 1; transform: translateY(-50px); }
+}
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+    opacity: 0.8;
+    animation: starry-sky 1.5s infinite;
+}
+
+.star:nth-child(odd) {
+    animation-duration: 2s;
+}
+
+.star:nth-child(even) {
+    animation-duration: 1s;
+}
+
+/* Fairy Cursor */
+.fairy-cursor {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    pointer-events: none;
+    background: url('fairy.png') no-repeat center center;
+    background-size: cover;
+    transition: transform 0.2s ease;
+}
+
+.fairy-cursor.hover {
+    transform: scale(1.2);
+}
+
+/* Technical Skills, Certifications, Achievements */
 #technical-skills, #certifications, #achievements {
     padding: 40px 20px;
     background-color: #FFFFFF;
@@ -262,6 +338,8 @@ body.galaxy-theme .footer-section {
     margin-bottom: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: background-color 0.3s ease;
 }
 
 #technical-skills h2, #certifications h2, #achievements h2 {
@@ -269,6 +347,7 @@ body.galaxy-theme .footer-section {
     color: #6A8B89;
     text-align: center;
     margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
 #technical-skills ul, #certifications ul, #achievements ul {
@@ -283,6 +362,11 @@ body.galaxy-theme .footer-section {
     color: #555;
     padding: 10px 0;
     border-bottom: 1px solid #E6E6E6;
+    transition: color 0.3s ease;
+}
+
+#technical-skills ul li:hover, #certifications ul li:hover, #achievements ul li:hover {
+    color: #FFB6C1;
 }
 
 #technical-skills ul li strong, #certifications ul li, #achievements ul li {
@@ -293,6 +377,7 @@ body.galaxy-theme .footer-section {
     border-bottom: none;
 }
 
+/* Responsive Design for Skills, Certifications, Achievements */
 @media (max-width: 768px) {
     #technical-skills h2, #certifications h2, #achievements h2 {
         font-size: 2rem;
@@ -311,15 +396,4 @@ body.galaxy-theme .footer-section {
     #technical-skills ul li, #certifications ul li, #achievements ul li {
         font-size: 0.9rem;
     }
-}
-
-.fairy-cursor {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    pointer-events: none;
-}
-
-.fairy-cursor.hover {
-    transform: scale(1.2);
 }
