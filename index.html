@@ -5,12 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nathasha</title>
     <link rel="stylesheet" href="finalstyles.css">
+    <style>
+        /* Add sparkle cursor animation */
+        #fairyCursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 80%);
+            pointer-events: none;
+            mix-blend-mode: screen;
+            z-index: 9999;
+            animation: sparkle 0.5s infinite;
+        }
+
+        @keyframes sparkle {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0.5); opacity: 0; }
+        }
+
+        /* Galaxy Theme Styling */
+        body.galaxy-theme {
+            background: #0b3d91;
+            color: #ffffff;
+        }
+        body.galaxy-theme nav {
+            background: #1a1a2e;
+        }
+        body.galaxy-theme .footer-section {
+            background-color: #2c2c54;
+        }
+        body.galaxy-theme .project-card {
+            background-color: #2c2c54;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="theme-switcher">
-            <button id="toggleTheme">Switch </button>
-
+            <button id="toggleTheme">Switch Theme</button>
         </div>
         <ul>
             <li><a href="#intro" class="active">Home</a></li>
@@ -23,16 +56,13 @@
         <div class="intro-content">
             <h1>Hello, I'm Nathasha</h1>
             <p>I love building creative solutions.</p>
-            <p>I’m a passionate developer currently studying Information Science and Engineering at Sahyadri College of Engineering & Management.Whether it’s developing creative digital solutions or collaborating on impactful projects, I’m always eager to learn and grow.
-                Feel free to explore my work, and let’s connect!
-                </p>
+            <p>I’m a passionate developer currently studying Information Science and Engineering at Sahyadri College of Engineering & Management. Feel free to explore my work, and let’s connect!</p>
         </div>
     </header>
     <section class="projects-section" id="projects">
         <h2>Projects</h2>
         <div class="projects-container">
             <div class="project-card">
-                <!-- <img src="v.png" alt="Voltix Solutions Website" height="250px" width="250px"> -->
                 <h3>Voltix Solutions Website</h3>
                 <p>Developed a user-friendly website for Voltix Solutions using ReactJS and Node.js.</p>
                 <a href="https://voltixsolutions.web.app/">View Project</a>
@@ -44,21 +74,6 @@
             </div>
         </div>
     </section>
-    <!-- <section class="experience-section" id="experience">
-        <h2>Experience</h2>
-        <div class="timeline">
-            <div class="timeline-event">
-                <h3>Job Title 1</h3>
-                <p>Company Name | Date Range</p>
-                <p>Role and achievements.</p>
-            </div>
-            <div class="timeline-event">
-                <h3>Job Title 2</h3>
-                <p>Company Name | Date Range</p>
-                <p>Description of your role and achievements.</p>
-            </div>
-        </div>
-    </section> -->
     <section id="technical-skills">
         <h2>Technical Skills</h2>
         <ul>
@@ -101,10 +116,30 @@
             <a href="https://github.com/nath-asha" class="social-icon">GitHub</a>
             <a href="https://twitter.com/nate31974945" class="social-icon">Twitter</a>
         </div>
-            <p>Get in touch: <a href="mailto:omna0504@gmail.com">omna0504@gmail.com</a></p>
+        <p>Get in touch: <a href="mailto:omna0504@gmail.com">omna0504@gmail.com</a></p>
         <p>&copy; 2024 Nathasha. All rights reserved.</p>
     </footer>
     <div id="fairyCursor"></div>
-    <script src="finalscript.js"></script>
+    <script>
+        const fairyCursor = document.getElementById('fairyCursor');
+        document.addEventListener('mousemove', (e) => {
+            fairyCursor.style.left = e.pageX + 'px';
+            fairyCursor.style.top = e.pageY + 'px';
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleThemeButton = document.getElementById('toggleTheme');
+
+            if (toggleThemeButton) {
+                toggleThemeButton.addEventListener('click', function() {
+                    document.body.classList.toggle('galaxy-theme');
+                    localStorage.setItem('theme', document.body.classList.contains('galaxy-theme') ? 'galaxy' : 'default');
+                });
+            }
+
+            if (localStorage.getItem('theme') === 'galaxy') {
+                document.body.classList.add('galaxy-theme');
+            }
+        });
+    </script>
 </body>
 </html>
