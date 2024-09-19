@@ -488,8 +488,8 @@ body.galaxy-theme .footer-section {
 
 /* Sparkle Animation */
 @keyframes sparkle {
-    0% { opacity: 0.5; transform: scale(1); }
-    100% { opacity: 0.8; transform: scale(1.2); }
+    0% { opacity: 1.5; transform: scale(1); }
+    100% { opacity: 2.8; transform: scale(1.2); }
 }
 
 /* Card Text */
