@@ -13,7 +13,7 @@ header.intro-section {
     background: url('su.jpg') no-repeat center center fixed;
     background-size: cover;
     height: 800px;
-    padding: 365px 10px;
+    padding: 200px 10px;
     text-align: center;
 }
 
@@ -311,4 +311,15 @@ body.galaxy-theme .footer-section {
     #technical-skills ul li, #certifications ul li, #achievements ul li {
         font-size: 0.9rem;
     }
+}
+
+.fairy-cursor {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    pointer-events: none;
+}
+
+.fairy-cursor.hover {
+    transform: scale(1.2);
 }
