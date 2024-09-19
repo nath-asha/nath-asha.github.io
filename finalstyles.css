@@ -397,3 +397,137 @@ body.galaxy-theme .footer-section {
         font-size: 0.9rem;
     }
 }
+
+/* Base Styles for Card Sections */
+.card-section {
+    padding: 50px 20px;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-section h2 {
+    font-size: 2.5rem;
+    color: #6A8B89;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+}
+
+/* Card Container */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Individual Card */
+.card {
+    background-color: #FFFBF0;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Card Title and Content */
+.card h3 {
+    font-size: 1.8rem;
+    color: #6A8B89;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Magical Star Shapes */
+.card:before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 20%, transparent 40%);
+    border-radius: 50%;
+    transform: scale(0.9);
+    z-index: 0;
+    pointer-events: none;
+    animation: sparkle 2s infinite alternate;
+}
+
+.card:after {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    right: -10%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 20%, transparent 40%);
+    border-radius: 50%;
+    transform: scale(0.8);
+    z-index: 0;
+    pointer-events: none;
+    animation: sparkle 2s infinite alternate-reverse;
+}
+
+/* Sparkle Animation */
+@keyframes sparkle {
+    0% { opacity: 0.5; transform: scale(1); }
+    100% { opacity: 0.8; transform: scale(1.2); }
+}
+
+/* Card Text */
+.card-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card-section {
+        padding: 40px 20px;
+    }
+
+    .card-container {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .card h3 {
+        font-size: 1.5rem;
+    }
+
+    .card p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-section {
+        padding: 30px 15px;
+    }
+
+    .card h3 {
+        font-size: 1.2rem;
+    }
+
+    .card p {
+        font-size: 0.8rem;
+    }
+}
+
