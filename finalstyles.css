@@ -531,3 +531,24 @@ body.galaxy-theme .footer-section {
     }
 }
 
+.email-button {
+    display: inline-block;
+    background-color: #6a5acd; /* Choose a color you like */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .email-button:hover {
+    background-color: #483d8b; /* Darker shade on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+  }
+
+  p {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #666;
+  }
