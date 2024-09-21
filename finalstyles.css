@@ -13,7 +13,7 @@ body {
 header.intro-section {
     background: url('su.jpg') no-repeat center center fixed;
     background-size: cover;
-    height: 800px;
+    height: 500px;
     padding: 200px 10px;
     text-align: center;
     position: relative;
@@ -29,7 +29,7 @@ header.intro-section {
 .intro-content p {
     font-size: 1.5rem;
     color: #555;
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
     line-height: 1.6;
 }
