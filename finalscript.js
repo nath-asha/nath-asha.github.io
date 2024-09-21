@@ -3,49 +3,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const toggleThemeButton = document.getElementById('toggleTheme');
     createStars();
 
-    if (toggleThemeButton) {
-        toggleThemeButton.addEventListener('click', function() {
-            const isGalaxyTheme = document.body.classList.toggle('galaxy-theme');
-            document.getElementById('stars').style.display = isGalaxyTheme ? 'block' : 'none';
-            localStorage.setItem('theme', isGalaxyTheme ? 'galaxy' : 'default');
-        });
-    }
-
-    // Check localStorage for saved theme
-    if (localStorage.getItem('theme') === 'galaxy') {
-        document.body.classList.add('galaxy-theme');
-        document.getElementById('stars').style.display = 'block';
-    } else {
-        document.getElementById('stars').style.display = 'none';
-    }
-
-    // Set active link in navigation
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            navLinks.forEach(nav => nav.classList.remove('active'));
-            this.classList.add('active');
-        });
-    });
-});
-
-const fairyCursor = document.getElementById('fairyCursor');
-document.addEventListener('mousemove', (e) => {
-    fairyCursor.style.left = e.pageX + 'px';
-    fairyCursor.style.top = e.pageY + 'px';
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('nav ul li a');
-    const toggleThemeButton = document.getElementById('toggleTheme');
-    
-    // Create stars
-    createStars();
-
     // Theme toggle functionality
     if (toggleThemeButton) {
         toggleThemeButton.addEventListener('click', function() {
             const isGalaxyTheme = document.body.classList.toggle('galaxy-theme');
             document.getElementById('stars').style.display = isGalaxyTheme ? 'block' : 'none';
+
+            // Remove background image for dark theme
+            if (isGalaxyTheme) {
+                document.body.style.backgroundImage = 'none'; // Change this if you want a different background
+            } else {
+                document.body.style.backgroundImage = 'url("path/to/your/background.jpg")'; // Original background image
+            }
+
             localStorage.setItem('theme', isGalaxyTheme ? 'galaxy' : 'default');
         });
     }
@@ -54,8 +24,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (localStorage.getItem('theme') === 'galaxy') {
         document.body.classList.add('galaxy-theme');
         document.getElementById('stars').style.display = 'block';
+        document.body.style.backgroundImage = 'none'; // Remove background image
     } else {
         document.getElementById('stars').style.display = 'none';
+        document.body.style.backgroundImage = 'url("path/to/your/background.jpg")'; // Original background image
     }
 
     // Set active link in navigation
@@ -65,6 +37,13 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.add('active');
         });
     });
+});
+
+// Fairy cursor functionality
+const fairyCursor = document.getElementById('fairyCursor');
+document.addEventListener('mousemove', (e) => {
+    fairyCursor.style.left = e.pageX + 'px';
+    fairyCursor.style.top = e.pageY + 'px';
 });
 
 function createStars() {
