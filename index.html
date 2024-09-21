@@ -5,53 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nathasha</title>
     <link rel="stylesheet" href="finalstyles.css">
-    <style>
-        /* Add sparkle cursor animation */
-        #fairyCursor {
-            position: fixed;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 80%);
-            pointer-events: none;
-            mix-blend-mode: screen;
-            z-index: 9999;
-            animation: sparkle 4s infinite;
-        }
-
-        @keyframes sparkle {
-            0% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(0.5); opacity: 0; }
-        }
-
-        /* Galaxy Theme Styling */
-        body.galaxy-theme {
-            background: #0b3d91;
-            color: #ffffff;
-        }
-        body.galaxy-theme nav {
-            background: #1a1a2e;
-        }
-        body.galaxy-theme .footer-section {
-            background-color: #2c2c54;
-        }
-        body.galaxy-theme .project-card {
-            background-color: #2c2c54;
-        }
-
-        /* Stars Background */
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: transparent;
-            z-index: 0;
-            overflow: hidden;
-            display: none; /* Initially hidden */
-        }
-    </style>
+      
 </head>
 <body>
     <div class="stars" id="stars"></div>
@@ -63,7 +17,7 @@
             <li><a href="#intro" class="active">Home</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#technical-skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#footer">Contact</a></li>
         </ul>
     </nav>
     <header class="intro-section" id="intro">
@@ -115,6 +69,7 @@
             <li>Member of Organizing Committee, National level Tech fest Synergia (2023) - Hospitality In-charge & promotions</li>
         </ul>
     </section>
+    <section id="footer">
     <footer class="footer-section">
         <div class="social-links">
             <a href="https://www.linkedin.com/in/nathasha-t-attavar-492a4125b?" class="social-icon">LinkedIn</a>
@@ -126,63 +81,7 @@
         </p>
         <p>&copy; 2024 Nathasha. All rights reserved.</p>
     </footer>
+    </section>
     <div id="fairyCursor"></div>
-    <script>
-        const fairyCursor = document.getElementById('fairyCursor');
-        document.addEventListener('mousemove', (e) => {
-            fairyCursor.style.left = e.pageX + 'px';
-            fairyCursor.style.top = e.pageY + 'px';
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('nav ul li a');
-            const toggleThemeButton = document.getElementById('toggleTheme');
-            
-            // Create stars
-            createStars();
-
-            // Theme toggle functionality
-            if (toggleThemeButton) {
-                toggleThemeButton.addEventListener('click', function() {
-                    const isGalaxyTheme = document.body.classList.toggle('galaxy-theme');
-                    document.getElementById('stars').style.display = isGalaxyTheme ? 'block' : 'none';
-                    localStorage.setItem('theme', isGalaxyTheme ? 'galaxy' : 'default');
-                });
-            }
-
-            // Check localStorage for saved theme
-            if (localStorage.getItem('theme') === 'galaxy') {
-                document.body.classList.add('galaxy-theme');
-                document.getElementById('stars').style.display = 'block';
-            } else {
-                document.getElementById('stars').style.display = 'none';
-            }
-
-            // Set active link in navigation
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    navLinks.forEach(nav => nav.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-        });
-
-        function createStars() {
-            const starsContainer = document.getElementById('stars');
-            for (let i = 0; i < 100; i++) { // Create 100 stars
-                const star = document.createElement('div');
-                star.classList.add('star');
-                star.style.position = 'absolute';
-                star.style.width = Math.random() * 3 + 'px';
-                star.style.height = star.style.width;
-                star.style.backgroundColor = 'white';
-                star.style.borderRadius = '50%';
-                star.style.top = Math.random() * 100 + 'vh';
-                star.style.left = Math.random() * 100 + 'vw';
-                star.style.opacity = Math.random();
-                starsContainer.appendChild(star);
-            }
-        }
-    </script>
-</body>
+    <script src="finalscript.js"></script>
 </html>

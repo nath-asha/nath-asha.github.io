@@ -552,3 +552,48 @@ body.galaxy-theme .footer-section {
     font-size: 14px;
     color: #666;
   }
+
+  #fairyCursor {
+    position: fixed;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 80%);
+    pointer-events: none;
+    mix-blend-mode: screen;
+    z-index: 9999;
+    animation: sparkle 4s infinite;
+}
+
+@keyframes sparkle {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0.5); opacity: 0; }
+}
+
+/* Galaxy Theme Styling */
+body.galaxy-theme {
+    background: #0b3d91;
+    color: #ffffff;
+}
+body.galaxy-theme nav {
+    background: #1a1a2e;
+}
+body.galaxy-theme .footer-section {
+    background-color: #2c2c54;
+}
+body.galaxy-theme .project-card {
+    background-color: #2c2c54;
+}
+
+/* Stars Background */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+    z-index: 0;
+    overflow: hidden;
+    display: none; /* Initially hidden */
+}
