@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -49,23 +49,12 @@
             background: transparent;
             z-index: 0;
             overflow: hidden;
-        }
-        .star {
-            position: absolute;
-            border-radius: 50%;
-            background: white;
-            opacity: 0.8;
-            animation: twinkle 1.5s infinite;
-        }
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
+            display: none; /* Initially hidden */
         }
     </style>
 </head>
 <body>
     <div class="stars" id="stars"></div>
-    
     <nav class="navbar">
         <div class="theme-switcher">
             <button id="toggleTheme">⭐</button>
@@ -77,7 +66,6 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
-    
     <header class="intro-section" id="intro">
         <div class="intro-content">
             <h1>Hello, I'm Nathasha</h1>
@@ -85,7 +73,6 @@
             <p>I’m a passionate developer currently studying Information Science and Engineering at Sahyadri College of Engineering & Management. Feel free to explore my work, and let’s connect!</p>
         </div>
     </header>
-    
     <section class="projects-section" id="projects">
         <h2>Projects</h2>
         <div class="projects-container">
@@ -101,7 +88,6 @@
             </div>
         </div>
     </section>
-    
     <section id="technical-skills">
         <h2>Technical Skills</h2>
         <ul>
@@ -113,7 +99,6 @@
             <li><strong>Soft Skills:</strong> Teamwork</li>
         </ul>
     </section>
-
     <section id="certifications">
         <h2>Certifications</h2>
         <ul>
@@ -122,7 +107,6 @@
             <li>Technical Career Education (TCE) Social Innovation Program</li>
         </ul>
     </section>
-
     <section id="achievements">
         <h2>Achievements / Positions of Responsibility</h2>
         <ul>
@@ -131,7 +115,6 @@
             <li>Member of Organizing Committee, National level Tech fest Synergia (2023) - Hospitality In-charge & promotions</li>
         </ul>
     </section>
-
     <footer class="footer-section">
         <div class="social-links">
             <a href="https://www.linkedin.com/in/nathasha-t-attavar-492a4125b?" class="social-icon">LinkedIn</a>
@@ -143,7 +126,6 @@
         </p>
         <p>&copy; 2024 Nathasha. All rights reserved.</p>
     </footer>
-
     <div id="fairyCursor"></div>
     <script>
         const fairyCursor = document.getElementById('fairyCursor');
@@ -152,36 +134,55 @@
             fairyCursor.style.top = e.pageY + 'px';
         });
 
-        // Create stars
-        function createStars() {
-            const starsContainer = document.getElementById('stars');
-            for (let i = 0; i < 100; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.width = Math.random() * 3 + 'px';
-                star.style.height = star.style.width;
-                star.style.top = Math.random() * 100 + 'vh';
-                star.style.left = Math.random() * 100 + 'vw';
-                star.style.animationDuration = Math.random() * 2 + 1 + 's';
-                starsContainer.appendChild(star);
-            }
-        }
-
         document.addEventListener('DOMContentLoaded', function() {
-            createStars();
+            const navLinks = document.querySelectorAll('nav ul li a');
             const toggleThemeButton = document.getElementById('toggleTheme');
+            
+            // Create stars
+            createStars();
 
+            // Theme toggle functionality
             if (toggleThemeButton) {
                 toggleThemeButton.addEventListener('click', function() {
-                    document.body.classList.toggle('galaxy-theme');
-                    localStorage.setItem('theme', document.body.classList.contains('galaxy-theme') ? 'galaxy' : 'default');
+                    const isGalaxyTheme = document.body.classList.toggle('galaxy-theme');
+                    document.getElementById('stars').style.display = isGalaxyTheme ? 'block' : 'none';
+                    localStorage.setItem('theme', isGalaxyTheme ? 'galaxy' : 'default');
                 });
             }
 
+            // Check localStorage for saved theme
             if (localStorage.getItem('theme') === 'galaxy') {
                 document.body.classList.add('galaxy-theme');
+                document.getElementById('stars').style.display = 'block';
+            } else {
+                document.getElementById('stars').style.display = 'none';
             }
+
+            // Set active link in navigation
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
         });
+
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 100; i++) { // Create 100 stars
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.position = 'absolute';
+                star.style.width = Math.random() * 3 + 'px';
+                star.style.height = star.style.width;
+                star.style.backgroundColor = 'white';
+                star.style.borderRadius = '50%';
+                star.style.top = Math.random() * 100 + 'vh';
+                star.style.left = Math.random() * 100 + 'vw';
+                star.style.opacity = Math.random();
+                starsContainer.appendChild(star);
+            }
+        }
     </script>
 </body>
 </html>

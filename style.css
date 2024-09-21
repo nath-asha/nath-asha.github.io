@@ -350,7 +350,7 @@ body.galaxy-theme .footer-section {
 
 /* Galaxy Theme Styling */
 body.galaxy-theme {
-    background: #0b3d91; /* This can be removed if you want the stars to be visible */
+    /* This can be removed if you want the stars to be visible */
     color: #ffffff;
 }
 body.galaxy-theme nav {
