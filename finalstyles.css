@@ -552,3 +552,122 @@ body.galaxy-theme .footer-section {
     font-size: 14px;
     color: #666;
   }
+  /* Base Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e9e6f7;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    transition: background-color 0.5s ease;
+    line-height: 1.6;
+}
+
+/* Galaxy Theme */
+body.galaxy-theme {
+    background-color: #1a1a2e;
+    color: #dcdcdc;
+}
+
+/* Header Section */
+header.intro-section {
+    background: url('su.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 500px;
+    padding: 200px 10px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+body.galaxy-theme header.intro-section {
+    background: none; /* Remove background image in dark theme */
+}
+
+/* Glassmorphism Effect for Skills, Certifications, Achievements */
+#technical-skills, #certifications, #achievements {
+    padding: 40px 20px;
+    background: rgba(140, 108, 162, 0.1);
+    text-align: left;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(187, 176, 176, 0.1);
+    position: relative;
+    color: #dcdcdc; /* Text color for better visibility */
+}
+
+/* Section Headers */
+#technical-skills h2, #certifications h2, #achievements h2 {
+    font-size: 2.5rem;
+    color:#99b0af;; /* Use bright color for section headers */
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* List Items */
+#technical-skills ul li, #certifications ul li, #achievements ul li {
+    font-size: 1.2rem;
+    color: #f4b2f9; /* Change list item color */
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: color 0.3s ease;
+}
+
+#technical-skills ul li:hover, #certifications ul li:hover, #achievements ul li:hover {
+    color: #f497a8;
+}
+
+/* Shooting Stars Animation */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+    opacity: 0.8;
+    animation: starry-sky 1.5s infinite;
+}
+
+.star:nth-child(odd) {
+    animation-duration: 2s;
+}
+
+.star:nth-child(even) {
+    animation-duration: 1s;
+}
+
+@keyframes starry-sky {
+    0% { opacity: 0; transform: translateY(0); }
+    100% { opacity: 1; transform: translateY(-50px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #technical-skills h2, #certifications h2, #achievements h2 {
+        font-size: 2rem;
+    }
+
+    #technical-skills ul li, #certifications ul li, #achievements ul li {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #technical-skills h2, #certifications h2, #achievements h2 {
+        font-size: 1.5rem;
+    }
+
+    #technical-skills ul li, #certifications ul li, #achievements ul li {
+        font-size: 0.9rem;
+    }
+}
