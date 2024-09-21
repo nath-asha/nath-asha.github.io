@@ -38,9 +38,34 @@
         body.galaxy-theme .project-card {
             background-color: #2c2c54;
         }
+
+        /* Stars Background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: transparent;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .star {
+            position: absolute;
+            border-radius: 50%;
+            background: white;
+            opacity: 0.8;
+            animation: twinkle 1.5s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
     </style>
 </head>
 <body>
+    <div class="stars" id="stars"></div>
+    
     <nav class="navbar">
         <div class="theme-switcher">
             <button id="toggleTheme">⭐</button>
@@ -52,6 +77,7 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
+    
     <header class="intro-section" id="intro">
         <div class="intro-content">
             <h1>Hello, I'm Nathasha</h1>
@@ -59,6 +85,7 @@
             <p>I’m a passionate developer currently studying Information Science and Engineering at Sahyadri College of Engineering & Management. Feel free to explore my work, and let’s connect!</p>
         </div>
     </header>
+    
     <section class="projects-section" id="projects">
         <h2>Projects</h2>
         <div class="projects-container">
@@ -74,6 +101,7 @@
             </div>
         </div>
     </section>
+    
     <section id="technical-skills">
         <h2>Technical Skills</h2>
         <ul>
@@ -85,6 +113,7 @@
             <li><strong>Soft Skills:</strong> Teamwork</li>
         </ul>
     </section>
+
     <section id="certifications">
         <h2>Certifications</h2>
         <ul>
@@ -93,6 +122,7 @@
             <li>Technical Career Education (TCE) Social Innovation Program</li>
         </ul>
     </section>
+
     <section id="achievements">
         <h2>Achievements / Positions of Responsibility</h2>
         <ul>
@@ -101,34 +131,7 @@
             <li>Member of Organizing Committee, National level Tech fest Synergia (2023) - Hospitality In-charge & promotions</li>
         </ul>
     </section>
-    <!-- <section class="contact-section" id="contact">
-        <h2>Contact Me</h2>
-        <form class="contact-form">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section> -->
-    <!-- <section class="timeline" id="timeline">
-        <h2>Timeline</h2>
-        <div class="timeline-event">
-            <h3>Internship at Voltix Solutions</h3>
-            <p>Contributed to the development of the Voltix Solutions website using ReactJS, Node.js, and TypeScript.</p>
-            <span>July 2023 - August 2023</span>
-        </div>
-        <div class="timeline-event">
-            <h3>Urban Planning Website Project</h3>
-            <p>Developed a dynamic urban planning website using MySQL Workbench and JavaScript for content rendering.</p>
-            <span>July 2023 - August 2023</span>
-        </div>
-        <div class="timeline-event">
-            <h3>Bulk Buyer Management System</h3>
-            <p>Created a scalable solution to streamline bulk buyer management and prevent product wastage.</p>
-            <span>August 2024</span>
-        </div>
-    </section> -->
-    
+
     <footer class="footer-section">
         <div class="social-links">
             <a href="https://www.linkedin.com/in/nathasha-t-attavar-492a4125b?" class="social-icon">LinkedIn</a>
@@ -136,10 +139,11 @@
             <a href="https://twitter.com/nate31974945" class="social-icon">Twitter</a>
         </div>
         <p>Get in touch: 
-  <a href="mailto:omna0504@gmail.com" class="email-button">Contact Me</a>
-</p>
-<p>&copy; 2024 Nathasha. All rights reserved.</p>
+            <a href="mailto:omna0504@gmail.com" class="email-button">Contact Me</a>
+        </p>
+        <p>&copy; 2024 Nathasha. All rights reserved.</p>
     </footer>
+
     <div id="fairyCursor"></div>
     <script>
         const fairyCursor = document.getElementById('fairyCursor');
@@ -147,7 +151,24 @@
             fairyCursor.style.left = e.pageX + 'px';
             fairyCursor.style.top = e.pageY + 'px';
         });
+
+        // Create stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = Math.random() * 3 + 'px';
+                star.style.height = star.style.width;
+                star.style.top = Math.random() * 100 + 'vh';
+                star.style.left = Math.random() * 100 + 'vw';
+                star.style.animationDuration = Math.random() * 2 + 1 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
+            createStars();
             const toggleThemeButton = document.getElementById('toggleTheme');
 
             if (toggleThemeButton) {
