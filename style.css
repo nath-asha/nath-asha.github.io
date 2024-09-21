@@ -347,3 +347,30 @@ body.galaxy-theme .footer-section {
     color: #6A8B89;
     margin-bottom: 20px;
 }
+
+/* Galaxy Theme Styling */
+body.galaxy-theme {
+    background: #0b3d91; /* This can be removed if you want the stars to be visible */
+    color: #ffffff;
+}
+body.galaxy-theme nav {
+    background: #1a1a2e;
+}
+body.galaxy-theme .footer-section {
+    background-color: #2c2c54;
+}
+body.galaxy-theme .project-card {
+    background-color: #2c2c54;
+}
+
+/* Stars Background */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: transparent; /* Make sure this is transparent */
+    z-index: 0;
+    overflow: hidden;
+}
