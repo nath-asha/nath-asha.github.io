@@ -231,7 +231,7 @@ header.intro-section {
 
 .navbar ul li a {
     text-decoration: none;
-    color: #3333;
+    color: #dac4c4;
     padding: 10px 20px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -669,5 +669,66 @@ body.galaxy-theme header.intro-section {
 
     #technical-skills ul li, #certifications ul li, #achievements ul li {
         font-size: 0.9rem;
+    }
+}
+/* Technical Skills Section */
+#technical-skills {
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.05); /* 5% opacity for background */
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    color: #dcdcdc;
+    text-align: left;
+}
+
+#technical-skills h2 {
+    font-size: 2.5rem;
+    color: #FFB6C1;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Grid layout for technical skills */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
+    gap: 20px;
+}
+
+/* Each skill item styling */
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.skill-item i {
+    font-size: 2rem; /* Icon size */
+    color: #FFB6C1; /* Icon color */
+    margin-bottom: 10px;
+}
+
+.skill-item strong {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #FFFFFF;
+}
+
+.skill-item p {
+    color: #dcdcdc;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr; /* Stack items in one column on smaller screens */
     }
 }
