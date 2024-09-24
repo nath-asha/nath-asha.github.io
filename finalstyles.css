@@ -333,7 +333,7 @@ body.galaxy-theme .footer-section {
 /* Technical Skills, Certifications, Achievements */
 #technical-skills, #certifications, #achievements {
     padding: 40px 20px;
-    background-color: #FFFFFF;
+    background-color: #3e3ebb;
     text-align: left;
     margin-bottom: 20px;
     border-radius: 10px;
@@ -344,7 +344,7 @@ body.galaxy-theme .footer-section {
 
 #technical-skills h2, #certifications h2, #achievements h2 {
     font-size: 2.5rem;
-    color: #6A8B89;
+    color: #30d8cd;
     text-align: center;
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -366,7 +366,7 @@ body.galaxy-theme .footer-section {
 }
 
 #technical-skills ul li:hover, #certifications ul li:hover, #achievements ul li:hover {
-    color: #FFB6C1;
+    color: #dd909b;
 }
 
 #technical-skills ul li strong, #certifications ul li, #achievements ul li {
@@ -608,7 +608,7 @@ body.galaxy-theme header.intro-section {
 /* List Items */
 #technical-skills ul li, #certifications ul li, #achievements ul li {
     font-size: 1.2rem;
-    color: #f4b2f9; /* Change list item color */
+    color: #705bc6; /* Change list item color */
     padding: 10px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     transition: color 0.3s ease;
