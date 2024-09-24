@@ -732,3 +732,65 @@ body.galaxy-theme header.intro-section {
         grid-template-columns: 1fr; /* Stack items in one column on smaller screens */
     }
 }
+/* Technical Skills Section */
+#technical-skills {
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.05); /* 5% opacity for background */
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    opacity: 75%;
+    color: #f4b5b5;
+    text-align: left;
+}
+
+#technical-skills h2 {
+    font-size: 2.5rem;
+    color: #fca4b1;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Grid layout for technical skills */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
+    gap: 20px;
+}
+
+/* Each skill item styling */
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background: rgba(36, 3, 3, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.skill-item i {
+    font-size: 2rem; /* Icon size */
+    color: #f894a3; /* Icon color */
+    margin-bottom: 10px;
+}
+
+.skill-item strong {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #FFFFFF;
+}
+
+.skill-item p {
+    color: #a86df0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr; /* Stack items in one column on smaller screens */
+    }
+}
